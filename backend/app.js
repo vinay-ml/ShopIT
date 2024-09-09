@@ -13,7 +13,9 @@ import cron from "node-cron";
 import axios from "axios";
 
 import path from "path";
-const __filename = dotenv.config({ path: "backend/config/config.env" });
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -42,11 +44,10 @@ app.use("/api/v1", paymentRoutes);
 app.use(errorMiddleware);
 
 // Deployment
-const __dirname1 = path.resolve();
 if (process.env.NODE_ENV === "PRODUCTION") {
-  app.use(express.static(path.join(__dirname1, "/frontend/build")));
+  app.use(express.static(path.join(__dirname, "../frontend/build")));
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"));
+    res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
   });
 } else {
   app.get("/", (req, res) => {
