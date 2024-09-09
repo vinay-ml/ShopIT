@@ -10,6 +10,7 @@ import errorMiddleware from "./middlewares/errors.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import paymentRoutes from "./routes/payment.js";
 import cron from "node-cron";
+import axios from "axios";
 
 import path from "path";
 const __filename = dotenv.config({ path: "backend/config/config.env" });
