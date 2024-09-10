@@ -63,7 +63,7 @@ app.get("/ping", (req, res) => {
 // Schedule a cron job to run every 10 minutes
 cron.schedule("*/10 * * * *", async () => {
   try {
-    const response = await axios.get("https://v9replica.onrender.com/ping");
+    const response = await axios.get("https://shopit-trend.onrender.com/ping");
     console.log("Ping response:", response.data);
   } catch (error) {
     console.error("Error pinging server:", error.message);
