@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node backend/app.js",
     "dev": "cross-env NODE_ENV=DEVELOPMENT nodemon backend/app.js",
-    "prod": "cross-env NODE_ENV=PRODUCTION nodemon backend/app.js"
+    "prod": "cross-env NODE_ENV=PRODUCTION nodemon backend/app.js",
+    "build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix frontend && npm run build --prefix frontend"
   },
   "author": "Vinay",
   "license": "ISC",
